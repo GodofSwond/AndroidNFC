@@ -19,6 +19,9 @@ import com.lonch.androidnfc.activity.WriteMUActivity;
 import com.lonch.androidnfc.activity.WriteTextActivity;
 import com.lonch.androidnfc.activity.WriteUriActivity;
 
+/**
+ * Author:Created by GodofSwond on 2018/4/25.
+ */
 public class MainActivity extends AppCompatActivity {
     private TextView ifo_NFC;
     private NfcAdapter mNfcAdapter;

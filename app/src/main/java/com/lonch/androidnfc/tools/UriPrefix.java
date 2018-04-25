@@ -4,9 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Author:Created by Ricky on 2017/8/25.
- * Email:584182977@qq.com
- * Description:地址前缀
+ * Author:Created by GodofSwond on 2018/4/25.
  */
 public class UriPrefix {
     public static final Map<Byte, String> URI_PREFIX_MAP = new HashMap<>();

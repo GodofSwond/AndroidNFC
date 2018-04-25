@@ -14,9 +14,7 @@ import com.lonch.androidnfc.base.BaseNfcActivity;
 import com.lonch.androidnfc.tools.UriPrefix;
 
 /**
- * Author:Created by Ricky on 2017/8/25.
- * Email:584182977@qq.com
- * Description:
+ * Author:Created by GodofSwond on 2018/4/25.
  */
 public class WriteUriActivity extends BaseNfcActivity {
     private String mUri = "http://www.baidu.com";

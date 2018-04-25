@@ -15,9 +15,7 @@ import com.lonch.androidnfc.base.BaseNfcActivity;
 
 
 /**
- * Author:Created by Ricky on 2017/8/25.
- * Email:584182977@qq.com
- * Description:打开短信
+ * Author:Created by GodofSwond on 2018/4/25.
  */
 public class RunAppActivity extends BaseNfcActivity {
     private String mPackageName = "com.android.mms";//短信

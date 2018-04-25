@@ -13,9 +13,7 @@ import com.lonch.androidnfc.base.BaseNfcActivity;
 import java.nio.charset.Charset;
 
 /**
- * Author:Created by Ricky on 2017/8/25.
- * Email:584182977@qq.com
- * Description:
+ * Author:Created by GodofSwond on 2018/4/25.
  */
 public class ReadMUActivity extends BaseNfcActivity {
     @Override

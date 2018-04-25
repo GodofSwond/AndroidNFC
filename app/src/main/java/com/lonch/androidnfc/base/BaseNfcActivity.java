@@ -6,9 +6,7 @@ import android.nfc.NfcAdapter;
 import android.support.v7.app.AppCompatActivity;
 
 /**
- * Author:Created by Ricky on 2017/8/25.
- * Email:584182977@qq.com
- * Description:
+ * Author:Created by GodofSwond on 2018/4/25.
  * 子类在onNewIntent方法中进行NFC标签相关操作。
  * launchMode设置为singleTop或singelTask，保证Activity的重用唯一
  * 在onNewIntent方法中执行intent传递过来的Tag数据

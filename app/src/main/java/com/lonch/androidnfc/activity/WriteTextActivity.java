@@ -16,9 +16,7 @@ import java.nio.charset.Charset;
 import java.util.Locale;
 
 /**
- * Author:Created by Ricky on 2017/8/25.
- * Email:584182977@qq.com
- * Description:
+ * Author:Created by GodofSwond on 2018/4/25.
  */
 public class WriteTextActivity extends BaseNfcActivity {
     private String mText = "NFC-NewText-123";
