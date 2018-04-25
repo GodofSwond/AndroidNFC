@@ -19,14 +19,15 @@ import com.lonch.androidnfc.activity.WriteMUActivity;
 import com.lonch.androidnfc.activity.WriteTextActivity;
 import com.lonch.androidnfc.activity.WriteUriActivity;
 
+import butterknife.BindView;
+
 /**
  * Author:Created by GodofSwond on 2018/4/25.
  */
 public class MainActivity extends AppCompatActivity {
-    private TextView ifo_NFC;
     private NfcAdapter mNfcAdapter;
 
-    private static final String[] strs = new String[]{
+    private static final String[] str = new String[]{
             "自动打开短信界面",
             "自动打开百度页面",
             "读NFC标签中的文本数据",
@@ -37,24 +38,45 @@ public class MainActivity extends AppCompatActivity {
             "写NFC标签非NDEF格式的数据"
     };
 
+    @BindView(R.id.ifo_NFC)
+    TextView ifo_NFC;
+    @BindView(R.id.listview)
+    ListView listView;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ifo_NFC = (TextView) findViewById(R.id.ifo_NFC);
-        // NFC适配器，所有的关于NFC的操作从该适配器进行
+        // 获取默认的NFC控制器,NFC适配器,所有的关于NFC的操作从该适配器进行
         mNfcAdapter = NfcAdapter.getDefaultAdapter(this);
         if (!ifNFCUse()) {
             return;
         }
-        ListView listView = (ListView) findViewById(R.id.listview);
-        listView.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, strs));
+        listView.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, str));
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 switchActivity(position);
             }
         });
+    }
+
+    /**
+     * 检测工作,判断设备是否支持NFC
+     *
+     * @return
+     */
+    protected Boolean ifNFCUse() {
+        if (mNfcAdapter == null) {
+            ifo_NFC.setText("该设备暂不支持NFC！");
+            finish();
+            return false;
+        }
+        if (mNfcAdapter != null && !mNfcAdapter.isEnabled()) {
+            ifo_NFC.setText("请在系统设置中先启用NFC功能！");
+            return false;
+        }
+        return true;
     }
 
     private void switchActivity(int position) {
@@ -86,22 +108,5 @@ public class MainActivity extends AppCompatActivity {
             default:
                 break;
         }
-    }
-
-    /**
-     * 检测工作,判断设备的NFC支持情况
-     *
-     * @return
-     */
-    protected Boolean ifNFCUse() {
-        if (mNfcAdapter == null) {
-            ifo_NFC.setText("设备不支持NFC！");
-            return false;
-        }
-        if (mNfcAdapter != null && !mNfcAdapter.isEnabled()) {
-            ifo_NFC.setText("请在系统设置中先启用NFC功能！");
-            return false;
-        }
-        return true;
     }
 }
