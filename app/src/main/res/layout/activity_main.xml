@@ -13,7 +13,7 @@
         android:layout_marginTop="10dp"
         android:text="该设备支持NFC，请写入数据！"
         android:textColor="@color/colorAccent"
-        android:textSize="20dp" />
+        android:textSize="25dp" />
 
     <ListView
         android:id="@+id/listview"
