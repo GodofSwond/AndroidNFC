@@ -19,13 +19,13 @@ import com.lonch.androidnfc.activity.WriteMUActivity;
 import com.lonch.androidnfc.activity.WriteTextActivity;
 import com.lonch.androidnfc.activity.WriteUriActivity;
 
-import butterknife.BindView;
-
 /**
  * Author:Created by GodofSwond on 2018/4/25.
  */
 public class MainActivity extends AppCompatActivity {
     private NfcAdapter mNfcAdapter;
+    private TextView ifo_NFC;
+    private ListView listView;
 
     private static final String[] str = new String[]{
             "自动打开短信界面",
@@ -38,20 +38,18 @@ public class MainActivity extends AppCompatActivity {
             "写NFC标签非NDEF格式的数据"
     };
 
-    @BindView(R.id.ifo_NFC)
-    TextView ifo_NFC;
-    @BindView(R.id.listview)
-    ListView listView;
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ifo_NFC = (TextView) findViewById(R.id.ifo_NFC);
+
         // 获取默认的NFC控制器,NFC适配器,所有的关于NFC的操作从该适配器进行
         mNfcAdapter = NfcAdapter.getDefaultAdapter(this);
         if (!ifNFCUse()) {
             return;
         }
+        listView = (ListView) findViewById(R.id.listview);
         listView.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, str));
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -68,8 +66,7 @@ public class MainActivity extends AppCompatActivity {
      */
     protected Boolean ifNFCUse() {
         if (mNfcAdapter == null) {
-            ifo_NFC.setText("该设备暂不支持NFC！");
-            finish();
+            ifo_NFC.setText("设备不支持NFC！");
             return false;
         }
         if (mNfcAdapter != null && !mNfcAdapter.isEnabled()) {

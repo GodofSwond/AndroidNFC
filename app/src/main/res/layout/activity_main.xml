@@ -9,13 +9,18 @@
         android:id="@+id/ifo_NFC"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
         android:text="该设备支持NFC，请写入数据！"
+        android:textColor="@color/colorAccent"
         android:textSize="20dp" />
 
     <ListView
         android:id="@+id/listview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="15dp" />
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp" />
 
 </LinearLayout>
